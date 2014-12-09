@@ -1,13 +1,11 @@
 require 'rubygems'
 require 'sinatra'
-require 'redis'
 require 'json'
 require 'logger'
+require 'geoip'
 require 'colorize'
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].sort.each {|file| require file}
-I18n.enforce_available_locales = false
-I18n.locale = :en
 
 module LocationTracker
   class App < Sinatra::Base
@@ -17,10 +15,14 @@ module LocationTracker
 
 
     get '/' do
+      ip = params['ip']
+      Tracker.get_details(ip).to_json
+    end
 
+    get '/country_codes' do
+      ip = params['ip']
+      Tracker.country_codes(ip)
     end
 
   end
-
-
 end
