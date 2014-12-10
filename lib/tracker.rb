@@ -6,7 +6,7 @@ module Tracker
 
   def self.country_codes(ip)
     details = geoip.city(ip)
-    [details[:country_code2], details[:country_code3]]
+    details[:country_code2] || details[:country_code3]
   end
 
 

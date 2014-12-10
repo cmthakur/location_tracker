@@ -16,12 +16,13 @@ module LocationTracker
 
     get '/' do
       ip = params['ip']
-      Tracker.get_details(ip).to_json
+      Tracker.country_codes(ip)
+
     end
 
-    get '/country_codes' do
+    get '/details' do
       ip = params['ip']
-      Tracker.country_codes(ip)
+      Tracker.get_details(ip).to_json
     end
 
   end

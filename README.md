@@ -1,5 +1,5 @@
-*** Get country codes ***
-http://localhost:3001/country_codes?ip=github.com
+*** Get details ***
+http://localhost:3001/details?ip=github.com
 
-*** Get Details ***
+*** Get country code ***
 http://localhost:3001?ip=github.com
