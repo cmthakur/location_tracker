@@ -12,16 +12,16 @@ module LocationTracker
     set :logging, true
     set :raise_errors, true
     set :show_exceptions, false
-    set :port, 3001
+    set :port, 8080
 
 
     get '/' do
-      ip = params['ip']
+      ip = params['ip'] || request.ip
       Tracker.country_codes(ip)
     end
 
     get '/details' do
-      ip = params['ip']
+      ip = params['ip'] || request.ip
       Tracker.get_details(ip).to_json
     end
 
