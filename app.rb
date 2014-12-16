@@ -12,12 +12,12 @@ module LocationTracker
     set :logging, true
     set :raise_errors, true
     set :show_exceptions, false
+    set :port, 3001
 
 
     get '/' do
       ip = params['ip']
       Tracker.country_codes(ip)
-
     end
 
     get '/details' do
