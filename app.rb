@@ -27,3 +27,7 @@ module LocationTracker
 
   end
 end
+
+if __FILE__ == $0
+  LocationTracker::App.run!
+end
